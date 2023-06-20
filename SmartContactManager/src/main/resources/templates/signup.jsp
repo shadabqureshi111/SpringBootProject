@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::Layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>SmartCity</title>
+</head>
+<body>
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<div class="mycard mt-1">
+
+						<div th:if="${session.message }" th:classappend="${session.message.type}" class="alert alert-primary" role="alert">
+							<p th:text="${session.message.content}"></p>
+							<th:block th:text="${session.removeAttribute('message')}"></th:block>
+						</div>
+						<div class="container text-center">
+							<img alt="" style="width: 80px;" class=""
+								th:src="@{/image/membership.png}">
+						</div>
+						<h1 class="text-center">Register Here</h1>
+
+
+						<form th:action="@{/do_register}" method="post" th:object="${user}">
+
+							<!-- Name Field -->
+
+							<div class="form-group">
+
+								<label for="name">Your Name</label> <input type="text"
+									class="form-control" id="name" name="name"
+									aria-describedby="emailHelp" required="required"
+									th:value="${user.name}">
+							</div>
+
+							<div class="form-group">
+								<label for="email">Your Email</label> <input type="email"
+									class="form-control" id="email" name="email"
+									required="required" th:value="${user.email}">
+							</div>
+
+
+							<div class="form-group">
+								<label for="password">YourPassword</label> <input
+									type="password" class="form-control" id="password"
+									name="password" required="required">
+							</div>
+
+							<div class="form-group">
+								<textarea rows="6" name="about" class="form-control"
+									placeholder="Enter Something Yourself" th:value="${user.about}"></textarea>
+							</div>
+
+
+							<div class="form-group form-check text-center">
+								<input type="checkbox" name="agreement" class="form-check-input"
+									id="agreement" /> <label for="agreement">Accept
+									terms and conditions</label>
+							</div>
+
+							<div class="container text-center">
+								<button type="submit" class="btn bg-primary text-white">Submit</button>
+								<button type="reset" class="btn btn-warning">Reset</button>
+							</div>
+
+						</form>
+
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
