@@ -25,7 +25,8 @@ public class Controller {
 	}
 	
 	@PostMapping("/next")
-	public ResponseEntity<?> nextQuestion(@RequestBody Map<String,Object> req){
+	public ResponseEntity<?> nextQuestion(@RequestBody Map<String,Object> req)
+	{
 		Integer id=(Integer) req.get("question_id");
 		return apiSer.getNextQuetion(id);
 	}
