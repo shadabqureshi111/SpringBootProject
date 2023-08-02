@@ -15,11 +15,49 @@ public class UserAnswer
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 	
-	private String Answer;
+	private String answer;
+	
+	private Integer uid;
 	
 	@OneToOne(fetch = FetchType.LAZY)
 	private Question question;
 
+	public Integer getId() {
+		return id;
+	}
+
+	public Integer getUid() {
+		return uid;
+	}
+
+	public void setUid(Integer userId) {
+		this.uid = userId;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+		
+	}
+
+	public String getAnswer() {
+		return answer;
+	}
+
+	public void setAnswer(String answer) {
+		this.answer = answer;
+	}
+
+	public Question getQuestion() {
+		return question;
+	}
+
+	public void setQuestion(Question question) {
+		this.question = question;
+	}
+
+	
+
+	
 }

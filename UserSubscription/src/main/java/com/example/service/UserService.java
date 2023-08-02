@@ -8,32 +8,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.model.User;
-import com.example.repository.userRepository;
+import com.example.repository.UserRepository;
 
 @Service
 public class UserService 
 {
 	@Autowired
-	private userRepository userRepository;
+	private UserRepository userRepository;
 
-	    //private List<User> users = new ArrayList<>();
+	    private List<User> users = new ArrayList<>();
 
 	    public Optional<User> getuserById(Long id) 
 	    {
 	    	Optional<User> findById = userRepository.findById(id);
 	    
 	    	return findById;
-//	        User user1 = new User();
-//	        user1.setId(1L);
-//	        user1.setIsSubscribe("Yes");
-//	        users.add(user1);
-//
-//	        User user2 = new User();
-//	        user2.setId(2L);
-//	        user2.setIsSubscribe("No");
-//	        users.add(user2);
-//
-//	        return users;
 	    }
 
 //	    public List<User> findUser(String status) 
